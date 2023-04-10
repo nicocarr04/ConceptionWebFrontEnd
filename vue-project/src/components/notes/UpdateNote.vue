@@ -53,10 +53,10 @@ let note = ref({
 });
 
 function updateANote() {
-    updateNote(note.value)
+    updateNote(id, note.value)
         .then((res) => {
             console.log("Note mis a jour", res);
-            router.push("/")
+            router.push("/notes")
         .catch((err) =>console.log("Erreur lors de la mise a jour de la Note", err));
         })
 }

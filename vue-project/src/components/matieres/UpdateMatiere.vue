@@ -40,10 +40,10 @@ let matiere = ref({
 });
 
 function updateAMatiere() {
-    updateMatiere(matiere.value)
+    updateMatiere(id, matiere.value)
         .then((res) => {
             console.log("Matière mis a jour", res);
-            router.push("/")
+            router.push("/matieres")
         .catch((err) =>console.log("Erreur lors de la mise a jour de la matière", err));
         })
 }

@@ -51,7 +51,7 @@ const removeMatiere = (id) => {
     deleteMatiere(id)
         .then((res) => {
             console.log("Matiere supprime");
-            
+            location.reload();
             //Lecture de la liste complete depuis express
             getAllMatieres()
                 .then((res) => {

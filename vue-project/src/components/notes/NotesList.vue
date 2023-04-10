@@ -9,6 +9,8 @@
                     <td>Pourcentage</td>
                     <td>Date de creation</td>
                     <td>UserId</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -56,7 +58,7 @@ const removeNote = (id) => {
     deleteNote(id)
         .then((res) => {
             console.log("Note supprime");
-            
+            location.reload();
             //Lecture de la liste complete depuis express
             getAllNotes()
                 .then((res) => {

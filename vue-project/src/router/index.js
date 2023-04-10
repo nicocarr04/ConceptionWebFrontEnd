@@ -1,49 +1,73 @@
-import UserList from '../components/users/UserList.vue';
-import AddUser from '../components/adds/AddUser.vue';
-import UpdateUser from '../components/users/UpdateUser.vue';
-import NoteList from '../components/notes/NoteList.vue';
-import AddNote from '../components/adds/AddNote.vue';
-import UpdateNote from '../components/notes/UpdateNote.vue';
 import { createRouter, createWebHistory } from 'vue-router'
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: UserList
+      path: '/profil',
+      name: 'profil',
+      component: () => import('../components/users/Profil.vue')
     },
-    // {
-    //   path: '/profil',
-    //   name: 'profil',
-    //   component: Profil
-    // },
-    {
-      path: '/nouveau-user',
-      name: 'nouveauuser',
-      component: AddUser
-    },
-    {
-      path: '/mise-a-jour-user/:id',
-      name: 'miseajouruser',
-      component: UpdateUser
-    },
+
     {
       path: '/notes',
       name: 'notes',
-      component: NoteList
+      component: () => import('../components/notes/NotesList.vue')
     },
+    
     {
-      path: '/nouvelle-note',
-      name: 'nouvellenote',
-      component: AddNote
+      path: '/note/:id',
+      name: 'note',
+      component: () => import('../components/notes/NoteDetails.vue')
     },
+
     {
       path: '/mise-a-jour-note/:id',
-      name: 'miseajournote',
-      component: UpdateNote
-    }
+      name: 'mise-a-jour-note',
+      component: () => import('../components/notes/UpdateNote.vue')
+    },
+
+    {
+      path: '/note/:id?',
+      name: 'newNote',
+      component: () => import('../components/notes/CreateNote.vue')
+    },
+
+    {
+      path: '/matieres',
+      name: 'matieres',
+      component: () => import('../components/matieres/MatieresList.vue')
+    },
+    
+    {
+      path: '/matiere/:id',
+      name: 'matiere',
+      component: () => import('../components/matieres/MatiereDetails.vue')
+    },
+
+    {
+      path: '/mise-a-jour-matiere/:id',
+      name: 'mise-a-jour-matiere',
+      component: () => import('../components/matieres/UpdateMatiere.vue')
+    },
+
+
+    {
+      path: '/matiere/:id?',
+      name: 'newMatiere',
+      component: () => import('../components/matieres/CreateMatiere.vue')
+    },
+  
+    {
+      path: '/login',
+      name:'login',
+      component: () => import('../components/users/Login.vue')
+    },
+
+    {
+      path: '/register',
+      name:'register',
+      component: () => import('../components/users/Register.vue')
+    },
   ]
 })
 
